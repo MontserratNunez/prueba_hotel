@@ -1,0 +1,39 @@
+ID_HOTEL,NAME,TYPE,INFO
+1,Playa Café del Sol,Playa,Una hermosa playa de arena blanca y aguas cristalinas. Ideal para relajarse y disfrutar del sol.
+1,Escuela de Surf del Lago,Surf,Una escuela de surf con instructores expertos que enseñan técnicas de surf en un lago tranquilo y seguro.
+1,Restaurante Brisas del Mar,Restaurante,Un restaurante con vista al mar que ofrece mariscos frescos y cocina local.
+1,Spa Serenidad,Spa,Un spa de lujo con tratamientos rejuvenecedores y vistas impresionantes al océano.
+2,Mirador Estelar,Montaña,Un mirador panorámico que ofrece vistas impresionantes.
+2,Teatro del Eclipse,Teatro,Un teatro al aire libre con espectáculos nocturnos bajo un cielo estrellado.
+2,Bar Luna Llena,Restaurante,Un bar temático con cócteles exclusivos y música en vivo durante las noches.
+2,Taller de Arte Natural,Arte,"Un taller donde los huéspedes pueden participar en actividades de arte inspiradas en el entorno natural, como pintura al aire libre y escultura con materiales naturales."
+2,Jardín Zen del Silencio,Jardín,"Un jardín zen sereno con senderos de meditación y cascadas suaves, ideal para la contemplación y la relajación en armonía con la naturaleza."
+3,Área de Picnic del Lago,Jardín,"Un área designada para picnics junto al lago, con mesas de picnic y parrillas disponibles."
+3,Lago de los Deseos,Rio,"Un lago pintoresco con barcas a remo disponibles para los huéspedes, ideal para un paseo romántico al atardecer."
+3,Observatorio de Aves,Aves,Un observatorio dedicado a la observación de aves locales y migratorias en su entorno natural.
+3,Refugio de Mariposas,Montaña,Un invernadero tropical que alberga una variedad de mariposas exóticas y plantas tropicales.
+4,Jardines del Palacio,Jardín,"Jardines paisajísticos con fuentes y esculturas históricas, perfectos para paseos románticos."
+4,Salón de Baile Real,Teatro,Un salón de baile ornamentado donde se celebran elegantes eventos y recepciones.
+4,Festival de Luces del Mundo,Festival,"Un festival anual que celebra la diversidad cultural con exhibiciones de luces, música y gastronomía internacional."
+4,Teatro de Marionetas Mágicas,Teatro,Un teatro donde las marionetas cobran vida en espectáculos mágicos para niños y adultos.
+5,Área de Observación de Aves,Aves,"Un área designada para la observación de aves tropicales en su hábitat natural, ideal para aficionados y ornitólogos."
+5,Refugio del Arco Iris,Rio,Una impresionante cascada rodeada de vegetación exótica y fauna silvestre.
+5,Piscina de Aguas Termales,Rio,Piscina natural de aguas termales rodeada de vegetación exuberante y cascadas pequeñas.
+5,Restaurante Selva Verde,Restaurante,Un restaurante al aire libre que ofrece cocina gourmet local e internacional con vistas panorámicas al bosque tropical.
+6,Parque Acuático Tropical,Parque,"Un parque acuático con toboganes emocionantes y piscinas de olas, perfecto para diversión en familia bajo el sol tropical."
+6,Zona de Aventuras,Escalada,"Área con actividades como tirolesa, escalada en roca y paseos en ATV para los más aventureros."
+6,Excursión en Kayak por el Río Salvaje,Rio,"Una emocionante excursión en kayak por un río salvaje, rodeado de paisajes naturales y vida silvestre."
+6,Parque de Cuerdas Altas,Escalada,"Un parque de cuerdas altas con puentes colgantes, redes de escalada y tirolinas para desafiar la destreza física y mental."
+6,Rafting en Aguas Bravas,Rio,Una aventura de rafting emocionante a través de rápidos turbulentos y paisajes naturales impresionantes.
+6,Campo de Tiro con Arco,Parque,Un campo de tiro con arco donde los huéspedes pueden practicar su puntería en un entorno natural y seguro.
+6,Sendero de Bicicleta de Montaña,Montaña,"Un sendero especialmente diseñado para la práctica de bicicleta de montaña, con diferentes niveles de dificultad y vistas panorámicas."
+6,Escalada en Roca Extrema,Escalada,Un lugar de escalada en roca con rutas desafiantes y vistas panorámicas desde la cima de los acantilados.
+7,Centro de Buceo Profundo,Rio,"Centro especializado en cursos de buceo y snorkel, explorando arrecifes cercanos y vida marina."
+7,Parque de las Maravillas,Parque,Un parque temático lleno de atracciones emocionantes y shows espectaculares para toda la familia.
+7,Restaurante Marítimo,Restaurante,Un restaurante elegante que sirve mariscos frescos y platos gourmet con vistas espectaculares al océano.
+7,Club de Golf Marino,Golf,Un campo de golf profesional diseñado con vistas panorámicas al mar y desafiantes hoyos para golfistas de todos los niveles.
+8,Galería de Arte del Mar,Arte,Una galería de arte que exhibe obras inspiradas en el mar y la cultura local.
+8,Centro de Yoga Costero,Spa,Un centro de yoga frente al mar que ofrece clases diarias de yoga y meditación para mejorar el bienestar físico y mental.
+8,Café de las Olas,Restaurante,Un café acogedor donde los visitantes pueden disfrutar de café gourmet y pasteles caseros frente al mar.
+8,Mercado Artesanal del Mar,Festival,"Un mercado al aire libre donde los artesanos locales venden sus creaciones inspiradas en el mar, como joyas, cerámicas y textiles."
+8,Sendero Ecológico Costero,Playa,"Un sendero que bordea la costa y permite a los visitantes observar la flora y fauna local, ideal para caminatas y fotografía."

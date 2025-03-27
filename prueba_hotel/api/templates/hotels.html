@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<title>Hotels</title>
+<link rel="stylesheet" href="../static/css/hotels.css">
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div class="row">
+            <button onclick='location.href="/"'><</button>
+            <h2>Hoteles</h2>
+        </div>
+    </div>
+    <div>
+        <h3>¡Explora nuestras opciones de hoteles!</h3>
+    </div>
+    <div id="divElements">
+        {% for hotel in hotels %}
+        <div class="hotel" onclick= "location.href= '/hotel/{{ hotel[0] }}'">
+            <p class="hotelName">{{ hotel[1] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

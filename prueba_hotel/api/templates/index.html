@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<title>Inicio</title>
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h2>Planea tus vacaciones</h2>
+    </div>
+    <div>
+        <ul>
+            <li><a href="{{ url_for('hotels') }}">Hoteles</a></li>
+        </ul>
+        <ul>
+            <li><a href="">Autobuses</a></li>
+        </ul>
+        <ul>
+            <li><a href="">Ver reservaciones</a></li>
+        </ul>
+    </div>
+{% endblock %}

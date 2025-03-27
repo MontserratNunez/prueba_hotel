@@ -1,0 +1,143 @@
+*{
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.slider{
+    background-color: aqua;
+}
+
+.options{
+    padding: 10px;
+}
+
+.button{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.buttonContainer button[aria-pressed="true"]{ 
+    border-bottom: 2px solid rgb(40, 96, 238);
+    background-color: rgba(40, 96, 238, 0.1);
+}
+
+.center-content{
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 15px;
+    margin: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    max-width: 500px;
+}
+
+.info{
+    padding: 10px;
+    gap: 3px;
+    height: 105px;
+}
+
+.primary{
+    background-color: rgb(40, 96, 238);
+    color: white;
+}
+
+.second{
+    background-color: rgb(192, 206, 244);
+    color: rgb(40, 96, 238);
+}
+
+.third{
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 80%);
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.containerHotel{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.infoContainer{
+    position: relative;
+    width: calc(100vw - 340px);
+    height: 100%;
+    float: left;
+    padding: 10px;
+}
+
+.infoContainer h2{
+    padding: 10px;
+}
+
+.buttonContainer{
+    gap: 10px;
+}
+
+
+.infoCard{
+    position: relative;
+    width: 298px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 15px;
+    float: left;
+    margin: 10px;
+}
+
+#divElements{
+    height: calc(100vh - 100px);
+    width: 100%;
+    overflow: scroll;
+}
+
+.cardImg{
+    border-radius: 15px 15px 0 0;
+    margin: 0;
+    padding: 0;
+}
+
+.description{
+    color: hsl(0, 0%, 60%);
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.cardFooter{
+    gap: 10px;
+}
+
+.Img{
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}

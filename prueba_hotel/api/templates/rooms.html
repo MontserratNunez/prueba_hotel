@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<title>Hotels</title>
+{% endblock %}
+
+{% block body %}
+    <div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Index</a></li>
+        </ul>
+    </div>
+    <div id="divElements">
+        {% for room in rooms %}
+        <div class="room" onclick= "">
+            <p>{{ room }}</p>
+            <button>Ver detalles</button>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
