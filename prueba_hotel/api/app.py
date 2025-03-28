@@ -4,10 +4,16 @@ import requests
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-app.config["SECRET_KEY"] = "SECRET_KEY"
 
 url = "http://127.0.0.1:5000"
 
+VALID_API_KEYS = ["1234567890abcdef"]
+
+def authenticate_api_key():
+    api_key = request.headers.get("X-API-KEY")
+    if api_key not in VALID_API_KEYS:
+        return jsonify({"error": "Unauthorized"}), 401
+    
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
@@ -52,10 +58,12 @@ def reservation():
     name = data.get("name")
     bus_number = data.get("bus_number")
     room_number = data.get("room_number")
-    add_reservation_to_csv(hotel_id, name, room_number)
+    start_date = data.get("start_date")
+    end_date = data.get("end_date")
+    total_price, days = add_reservation(hotel_id, name, room_number, start_date, end_date)
     insert_new("passengers", [hotel_id, name, bus_number, room_number])
 
-    return jsonify({"message": "Reserva realizada exitosamente"}), 200
+    return jsonify({"message": "Reserva realizada exitosamente"}, {"total_price": total_price}, {"days": days}), 200
 
 @app.route("/hotel/checkout", methods=["GET", "POST"])
 def checkout_hotel():
@@ -63,6 +71,25 @@ def checkout_hotel():
     reservation_id = data.get("reservation_id")
     checkout(reservation_id)
     return jsonify({"message": "Checkout realizado exitosamente"}), 200
+
+@app.route("/hotel/reservation/validate", methods=["GET", "POST"])
+def validate_reservation():
+    """Valida una reserva según el ID proporcionado."""
+    data = request.get_json()
+    reservation_id = data.get("reservation_id")
+
+    reservation_info = get_reservation_by_id(reservation_id)
+    if reservation_info:
+        return jsonify({
+            "valid": True,
+            "hotel": reservation_info[0],
+            "client": reservation_info[1],
+            "room": reservation_info[2],
+            "start": reservation_info[4],
+            "end": reservation_info[5],
+        }), 200
+    else:
+        return jsonify({"valid": False, "error": "Reserva no encontrada."}), 404
 
 if __name__ == "__main__":
     app.run()

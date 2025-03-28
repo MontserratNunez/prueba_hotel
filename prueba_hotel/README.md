@@ -8,8 +8,10 @@ Este es un sistema de para realizar reservas de hotel. El usuario puede realizar
 2. **Consultar información de un hotel**: Muestra detalles sobre un hotel específico.
 3. **Ver habitaciones disponibles**: Muestra las habitaciones disponibles de un hotel.
 4. **Reservar una habitación**: Permite realizar una reserva en una habitación de un hotel.
-5. **Mostrar pasajeros de autobús**: Muestra una lista de los pasajeros de un autobús específico.
-6. **Checkout**: Realiza el checkout de una reserva y actualiza el estado de la habitación.
+5. **Reservar asientos de autobús**: Permite reservar asientos en un autobús.
+6. **Mostrar pasajeros de autobús**: Muestra una lista de los pasajeros de un autobús específico.
+7. **Checkout**: Realiza el checkout de una reserva y actualiza el estado de la habitación.
+8. **Validar reserva y detalles de estadía**: Permite validar una reserva y obtener los detalles de la estadía.
 
 ## Estructura del Proyecto
 

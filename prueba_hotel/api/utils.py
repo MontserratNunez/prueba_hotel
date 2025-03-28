@@ -1,5 +1,6 @@
 import sys
 import os
+from datetime import datetime
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
@@ -21,6 +22,7 @@ def insert_new(name, values):
     connect.append(name, values)
 
 def checkout(reservation_id):
+    """ Elimina la reserva y actualiza el estado de la habitación a "disponible"."""
     all_reservations = connect.read("reservations")
     reservation_to_remove = None
     room_to_update = None
@@ -87,8 +89,8 @@ def create_instance_passenger(bus_list):
 def create_instance_reservation():
     reservations_list = []
     for reservation in all_reservations:
-        reservations_list.append(Reservation(reservation["ID_RESERVATION"], reservation["ID_HOTEL"], reservation["NAME"], reservation["ROOM_NUM"]))
-
+        reservations_list.append(Reservation(reservation["ID_RESERVATION"], reservation["ID_HOTEL"], reservation["NAME"], 
+                                             reservation["ROOM_NUM"], reservation["START"],reservation ["END"]))
     return reservations_list
 
 def get_all_hotels(hotels_list):
@@ -123,17 +125,44 @@ def get_all_reservations(reservations_list):
     info = [reservation.get_info() for reservation in reservations_list]
     return info
 
-def add_reservation_to_csv(hotel_id, client_name, room_num):
+def add_reservation(hotel_id, client_name, room_num, start_date, end_date):
+    reservations = create_instance_reservation()
+
+    for res in reservations:
+        if res.hotel_id == hotel_id and res.room_num == room_num:
+            existing_start = datetime.strptime(res.start_date, "%d/%m/%Y")
+            existing_end = datetime.strptime(res.end_date, "%d/%m/%Y")
+            new_start = datetime.strptime(start_date, "%d/%m/%Y")
+            new_end = datetime.strptime(end_date, "%d/%m/%Y")
+
+            if not (new_end <= existing_start or new_start >= existing_end):
+                print("La habitación ya está reservada en estas fechas.")
+                return
+            
+    rooms = connect.read("rooms")
+    price_per_night = 0
+    for room in rooms:
+        if room["ID_HOTEL"] == hotel_id and room["NUMBER"] == room_num:
+            price_per_night = float(room["PRICE"])
+            break
+
+    num_days = (datetime.strptime(end_date, "%d/%m/%Y") - datetime.strptime(start_date, "%d/%m/%Y")).days
+    total_price = num_days * price_per_night
+    add_reservation_to_csv(hotel_id, client_name, room_num, start_date, end_date)
+    return total_price, num_days
+
+def add_reservation_to_csv(hotel_id, client_name, room_num, start_date, end_date):
     reservations = get_all_reservations(create_instance_reservation())
 
     last_id = int(reservations[-1][3])
     reservation_id = last_id + 1
     create_instance_room(create_instance_hotel())
-    connect.append("reservations", [reservation_id, hotel_id, client_name, room_num])
+    connect.append("reservations", [reservation_id, hotel_id, client_name, room_num, start_date, end_date])
 
     update_room_status(hotel_id, room_num, "Reservada")
 
 def update_room_status(hotel_id, room_num, new_status):
+    """Actualiza el estado de la habitacion a 'Disponible' o 'Reservada'"""
     rooms = connect.read("rooms")
     for room in rooms:
         if int(room["ID_HOTEL"]) == int(hotel_id) and int(room["NUMBER"]) == int(room_num):
@@ -144,4 +173,12 @@ def update_room_status(hotel_id, room_num, new_status):
     connect.write("rooms", write_header)
     for room in rooms:
         connect.append("rooms", [room["ID_HOTEL"], room["ID_ROOM"], room["TYPE"], room["NUMBER"], room["PRICE"], room["STATUS"]])
+
+def get_reservation_by_id(reservation_id):
+    """Busca una reserva por su ID en reservations.csv"""
+    reservations = create_instance_reservation()
+    for res in reservations:
+        if int(res.reservation_id) == int(reservation_id):
+            return res.get_info()
+    return None
 
