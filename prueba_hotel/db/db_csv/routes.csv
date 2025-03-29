@@ -5,19 +5,19 @@ BUS_NUM,ROUTE_NUM,STREET,SCHEDULE
 3,4,Plaza de las Flores 9,08:30AM
 1,5,Paseo Marítimo 27,08:00AM
 4,6,Avenida de las Estrellas 135,08:00AM
-4,6,Avenida de las Estrellas 135,10:00AM
-4,7,Calle del Río 14,12:00PM
-5,8,Camino del Lago 56,8:00AM
-5,8,Camino del Lago 56,11:0AM
-5,9,Avenida de las Estrellas 135,01:00PM
-6,10,Plaza de las Flores 9,12:30PM
-6,11,Avenida del Sol 123,12:00PM
-7,12,Carretera de la Sierra 678,03:00PM
-9,13,Calle del Río 14,01:00PM
-8,14,Avenida de las Estrellas 135,09:00AM
-8,15,Calle de la Playa 45,12:00PM
-9,16,Plaza de las Flores 9,07:00AM
-9,16,Plaza de las Flores 9,10:00AM
-10,17,Calle del Río 14,09:30AM
-10,18,Paseo Marítimo 27,12:00PM
-2,20,Avenida del Sol 123,9:00AM
+4,7,Avenida de las Estrellas 135,10:00AM
+4,8,Calle del Río 14,12:00PM
+5,9,Camino del Lago 56,8:00AM
+5,10,Camino del Lago 56,11:0AM
+5,11,Avenida de las Estrellas 135,01:00PM
+6,12,Plaza de las Flores 9,12:30PM
+6,13,Avenida del Sol 123,12:00PM
+7,14,Carretera de la Sierra 678,03:00PM
+9,15,Calle del Río 14,01:00PM
+8,16,Avenida de las Estrellas 135,09:00AM
+8,17,Calle de la Playa 45,12:00PM
+9,18,Plaza de las Flores 9,07:00AM
+9,19,Plaza de las Flores 9,10:00AM
+10,20,Calle del Río 14,09:30AM
+10,21,Paseo Marítimo 27,12:00PM
+2,22,Avenida del Sol 123,9:00AM

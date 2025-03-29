@@ -1,0 +1,224 @@
+*{
+    font-family: Calibri, sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.card{
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid hsl(0, 0%, 90%);
+    box-shadow: 0 3px 12px hsl(0, 0%, 90%);
+    padding: 15px;
+    width: 300px;
+}
+
+label, .t1{
+    color: hsl(0, 0%, 58%);
+    font-size: 15px;
+    margin: 0;
+}
+
+.column{
+    display: flex;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    height: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add{
+    background-color: hsl(120, 100%, 25%, 80%);
+    color: white;
+    border: none;
+    margin-left: 5px;
+}
+
+.del{
+    background-color: white;
+    border: 1px solid hsl(0, 92%, 70%);
+    color: hsl(0, 92%, 70%);
+    height: 25px;
+    margin-left: 5px;
+}
+
+.send{
+    background-color: hsl(223, 85%, 55%);
+    color: white;
+    border: none;
+}
+
+button, .send{
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input, select{
+    margin-bottom: 5px;
+}
+
+.routes *{
+    margin: 0;
+}
+
+.routes{
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#buses_list .column p{
+    padding: 5px;
+}
+
+.autobus{
+    background-color: hsl(223, 85%, 55%, 10%);
+    border-radius: 25px;
+    width: 60px;
+}
+
+.r2{
+    width: 120px;
+}
+
+.reserve{
+    color: hsl(223, 85%, 55%);
+    background-color: white;
+    border: 1px solid hsl(223, 85%, 55%);
+    font-size: 10px;
+}
+
+.additional, .bus_seats{
+    height: fit-content;
+}
+
+.additional *{
+    margin: 0;
+}
+
+.t3{
+    font-size: 11px;
+    margin: 0;
+    color: hsl(0, 0%, 58%);
+}
+
+.services{
+    margin-top: 10px;
+}
+
+.serv_label{
+    padding: 10px;
+}
+
+.serv_checkbox{
+    appearance: none;
+    width: 30px;
+    height: auto;
+    border: 2px solid hsl(223, 85%, 55%);
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.serv_checkbox:checked::before {
+    content: "✔";
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.serv_checkbox:checked{
+    background-color: hsl(223, 85%, 55%);
+}
+
+.ph p{
+    margin: 0;
+    padding: 0px;
+}
+
+.ph1{
+    width: 210px;
+}
+
+.hide{
+    display: none;
+}
+
+.seat{
+    font-size: 10px;
+    margin: 0;
+    height: 20px;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.available{
+    background-color: hsl(223, 10%, 90%);
+}
+
+.choice{
+    background-color: hsl(223, 81%, 65%);
+    color: white;
+}
+
+.taken{
+    background-color: rgb(244, 136, 136);
+}
+
+.bus_drawing{
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+    background-color: hsl(223, 10%, 95%);
+    width: fit-content;
+    height: fit-content;
+}
+
+.avb::marker {
+    color: hsl(223, 10%, 90%);
+    font-size: 1.5em;
+}
+
+.noavb::marker {
+    color: rgb(244, 136, 136);
+    font-size: 1.5em;
+}
+
+.select::marker {
+    color: hsl(223, 81%, 65%);
+    font-size: 1.5em;
+}
+
+#selected_seats{
+    height: fit-content;
+}
+
+.panel{
+    width: 150px;
+    height: fit-content;
+}
+
+.panel ul{
+    padding-inline-start: 20px;
+}
+

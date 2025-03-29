@@ -10,13 +10,16 @@
     </div>
     <div>
         <ul>
-            <li><a href="{{ url_for('hotels') }}">Hoteles</a></li>
+            <li><a href="{{ url_for('hotels') }}">Ver hoteles</a></li>
         </ul>
         <ul>
-            <li><a href="">Autobuses</a></li>
+            <li><a href="">Ver autobuses</a></li>
         </ul>
         <ul>
-            <li><a href="">Ver reservaciones</a></li>
+            <li><a href="{{ url_for('reservation') }}">Hacer una reservación</a></li>
+        </ul>
+        <ul>
+            <li><a href="">Validar reservación</a></li>
         </ul>
     </div>
 {% endblock %}

@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<title>Hacer reservación</title>
+<link rel="stylesheet" href="../static/css/reservation.css">
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h2>Hacer Reservación</h2>
+    </div>
+    <form class="column container" method="POST" action="/hotel/reservation">
+        <div class="card">
+            <label for="name">Nombre completo:</label><br>
+            <input type="text" name="name" id="name" class="input"><br>
+
+            <label for="hotel">Seleccione un hotel:</label><br>
+            <select name="hotel_id" id="hotel" style="height: 27px;" class="input">
+                <option value="0" disabled selected>Seleccione una opción</option>
+                <option value="1">Hotel El Paraíso</option>
+                <option value="2">Hotel Mar Azul</option>
+                <option value="3">Hotel La Montaña</option>
+                <option value="4">Hotel Jardines del Edén</option>
+                <option value="5">Hotel Estrella de Mar</option>
+                <option value="6">Hotel Cielo Sereno</option>
+                <option value="7">Hotel Fuente de la Vida</option>
+                <option value="8">Hotel Mirador del Lago</option>
+            </select><br>
+
+            <label for="room">Seleccione una habitación:</label><br>
+            <select name="room_number" id="room" style="height: 27px;" class="input">
+                <option value="0" disabled selected>Seleccione una opción</option>
+            </select><br>
+
+            <div class="column dates">
+                <div>
+                    <label for="start">Fecha de entrada:</label><br>
+                    <input type="date" id="start" name="start_date" style="height: 23px;"><br>
+                </div>
+                <div>
+                    <label for="end">Fecha de salida:</label><br>
+                    <input type="date" id="end" name="end_date" style="height: 23px;"><br>
+                </div>
+            </div>
+            <hr>
+            <div class="column">
+                <input type="checkbox" id="companions" name="companions">
+                <label>¿Viajará con acompañantes?</label>
+                <button onclick="addField()" id="add_companion" type="button" class="add hide">+ Agregar otro</button>
+            </div>
+            <div id="companions_list"></div>
+            <hr>
+            <div class="column">
+                <input type="checkbox" id="bus_checkbox" name="bus_checkbox">
+                <label for="bus_checkbox">¿Desea reservar boletos de autobús?</label>
+            </div>
+            <div id="buses_list">
+            </div>
+
+            <hr>
+            <div class="column">
+                <input type="checkbox" id="show_services" name="show_services">
+                <label for="show_services">Ver Servicios Adicionales</label>
+            </div>
+            <br>
+            <button type="submit" class="input send">Confirmar reserva</button>
+        </div>
+        <div id="bus_seats" class="card bus_seats hide">
+            <label>Información de autobús</label>
+            <p id="autobus" class="t1"></p>
+            <hr style="margin: 0;">
+            <p id="ruta" class="t1"></p>
+            <hr style="margin: 0;">
+            <p id="hora" class="t1"></p>
+            <hr style="margin: 0;">
+            <div>
+                <p>Seleccione los asientos de autobús:</p>
+                <div class="column container" style="gap: 30px;">
+                    <div class="bus_drawing column">
+                        <div class="bus_row">
+                            <p class="seat">1</p>
+                            <p class="seat">2</p>
+                            <p class="seat">3</p>
+                            <p class="seat">4</p>
+                            <p class="seat">5</p>
+                        </div>
+                        <div class="bus_row">
+                            <p class="seat">6</p>
+                            <p class="seat">7</p>
+                            <p class="seat">8</p>
+                            <p class="seat">9</p>
+                            <p class="seat">10</p>
+                        </div>
+                    </div>
+                    <div class="t3 panel">
+                        <ul>
+                            <li class="avb">Asientos disponibles</li>
+                            <li class="noavb">Asientos no disponibles</li>
+                            <li class="select">Asientos seleccionados:</lis>
+                        </ul>
+                        <div id="selected_seats" class="container">
+                            <input type="hidden" name="bus_number" id="bus_number_input">
+                            <input type="hidden" name="selected_seats_input" id="selected_seats_input" value="[]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card additional hide" id="additional_services">
+            <label class="t2">Servicios Adicionales</label><br>
+            <div class="column services">
+                <input type="checkbox" id="food_serv" name="food_serv" class="serv_checkbox">
+                <label for="food_serv" class="serv_label column">
+                    <div class="ph ph1">
+                        <p class="t2">Servicios de Comida</p>
+                        <p class="t3">Servicio a la habitación. Minibar Premium.</p>
+                    </div>
+                    <div class="ph ph2" style="margin-left: 8px;">
+                        <p class="t3">$20.00</p>
+                        <p class="t3">por día</p>
+                    </div>
+                </label>
+            </div>
+
+            <div class="column services">
+                <input type="checkbox" id="transfer_serv" name="transfer_serv" class="serv_checkbox">
+                <label for="transfer_serv" class="serv_label column">
+                    <div class="ph ph1">
+                        <p class="t2">Transportes y Traslados</p>
+                        <p class="t3">Traslado al aeropuerto. Alquiler de coche. Servicio de chófer.</p>
+                    </div>
+                    <div class="ph ph2" style="margin-left: 8px;">
+                        <p class="t3">$50.00</p>
+                        <p class="t3">por día</p>
+                    </div>
+                </label>
+            </div>
+
+            <div class="column services">
+                <input type="checkbox" id="tour_serv" name="tour_serv" class="serv_checkbox">
+                <label for="tour_serv" class="serv_label column">
+                    <div class="ph ph1">
+                        <p class="t2">Servicios de Tours</p>
+                        <p class="t3">Tour por la ciudad. Tour gastronómico.</p>
+                    </div>
+                    <div class="ph ph2" style="margin-left: 8px;">
+                        <p class="t3">$30.00</p>
+                        <p class="t3">por día</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+    </form>
+    
+    <script src="../static/js/reservation.js"></script>
+{% endblock %}

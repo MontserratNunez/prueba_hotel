@@ -46,24 +46,37 @@ def locations(hotel_id):
 
 @app.route("/bus/<bus_num>", methods=["GET", "POST"])
 def seats(bus_num):
-    bus = get_bus(bus_num, create_instance_bus(), "passengers")
+    bus = get_bus(bus_num, create_instance_bus(), "info")
+    print(bus_num)
     if request.method == "POST":
         return jsonify(bus)
-    return render_template("buses.html", rooms = rooms)
+    return render_template("buses.html", bus = bus)
+
+@app.route("/bus/routes/hotel/<hotel_num>", methods=["GET", "POST"])
+def routes(hotel_num):
+    routes = get_route_by_hotel(hotel_num)
+    if request.method == "POST":
+        return jsonify(routes)
 
 @app.route("/hotel/reservation", methods=["GET", "POST"])
 def reservation():
-    data = request.get_json()
-    hotel_id = data.get("hotel_id")
-    name = data.get("name")
-    bus_number = data.get("bus_number")
-    room_number = data.get("room_number")
-    start_date = data.get("start_date")
-    end_date = data.get("end_date")
-    total_price, days = add_reservation(hotel_id, name, room_number, start_date, end_date)
-    insert_new("passengers", [hotel_id, name, bus_number, room_number])
+    if request.method == "POST":
+        data = request.get_json()
+        print("data")
+        print(data)
+        hotel_id = data.get("hotel_id")
+        name = data.get("name")
+        room_number = data.get("room_number")
+        start_date = data.get("start_date")
+        end_date = data.get("end_date")
+        if data.get("bus_number"):
+            bus_number = data.get("bus_number")
+            bus_seats = data.get("selected_seats_input")
+            insert_new("passengers", [hotel_id, name, bus_number, room_number, bus_seats])
+        total_price, days = add_reservation(hotel_id, name, room_number, start_date, end_date)
 
-    return jsonify({"message": "Reserva realizada exitosamente"}, {"total_price": total_price}, {"days": days}), 200
+        return jsonify({"message": "Reserva realizada exitosamente"}, {"total_price": total_price}, {"days": days}), 200
+    return render_template("make_reservation.html")
 
 @app.route("/hotel/checkout", methods=["GET", "POST"])
 def checkout_hotel():

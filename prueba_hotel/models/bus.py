@@ -23,19 +23,19 @@ class Bus:
             self.schedule = schedule
 
         def get_info(self):
-            """Returns the info of the passenger"""
-            return [self.route_num, self.street, self.schedule]
+            """Returns the info of the route"""
+            return [self.bus_num, self.route_num, self.street, self.schedule]
 
-    def __init__(self, num, seats, bus_type):
+    def __init__(self, num, available_seats, taken_seats):
         self.num = num
-        self.seats = seats
-        self.bus_type = bus_type
+        self.available_seats = available_seats
+        self.taken_seats = taken_seats
         self.routes = []
         self.passengers = []
 
     def get_info(self):
         """Returns the info of the bus"""
-        return [self.num, self.seats, self.bus_type]
+        return [self.num, self.available_seats, self.taken_seats]
 
     def get_routes(self):
         """Returns all the routes of the bus"""
@@ -45,9 +45,9 @@ class Bus:
         """Returns all the passengers of the bus"""
         return [passenger.get_info() for passenger in self.passengers]
 
-    def add_route(self, route_num, street, schedule):
+    def add_route(self, bus_num, route_num, street, schedule):
         """Add a new route to the bus"""
-        route = self.Route(self.num, route_num, street, schedule)
+        route = self.Route(bus_num, route_num, street, schedule)
         self.routes.append(route)
 
     def add_passenger(self, passenger_name, bus_num, reservation_num):

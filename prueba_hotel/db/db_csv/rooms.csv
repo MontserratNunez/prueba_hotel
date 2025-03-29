@@ -1,12 +1,12 @@
 ID_HOTEL,ID_ROOM,TYPE,NUMBER,PRICE,STATUS
-1,1,Individual,101,50.00,Disponible
+1,1,Individual,101,50.00,Reservada
 1,2,Individual,102,55.00,Disponible
 1,3,Individual,103,65.00,Disponible
 1,4,Doble,201,75.00,Disponible
 1,5,Doble,202,80.00,Disponible
 1,6,Suite,301,120.00,Disponible
 1,7,Suite,302,120.00,Disponible
-2,8,Individual,101,55.00,Disponible
+2,8,Individual,101,55.00,Reservada
 2,9,Individual,102,55.00,Disponible
 2,10,Doble,201,80.00,Disponible
 2,11,Doble,202,85.00,Disponible
@@ -24,8 +24,8 @@ ID_HOTEL,ID_ROOM,TYPE,NUMBER,PRICE,STATUS
 4,23,Doble,201,70.00,Disponible
 4,24,Doble,202,70.00,Disponible
 4,25,Suite,301,110.00,Disponible
-4,26,Suite,302,110.00,Reservada
-5,27,Individual,101,45.00,Reservada
+4,26,Suite,302,110.00,Disponible
+5,27,Individual,101,45.00,Disponible
 5,28,Individual,102,50.00,Disponible
 5,29,Doble,201,65.00,Disponible
 5,30,Doble,202,75.00,Disponible
@@ -36,8 +36,8 @@ ID_HOTEL,ID_ROOM,TYPE,NUMBER,PRICE,STATUS
 6,35,Doble,202,80.00,Disponible
 6,36,Suite,301,150.00,Disponible
 6,37,Suite,302,160.00,Disponible
-7,38,Individual,101,55.00,Reservada
-7,39,Individual,102,65.00,Reservada
+7,38,Individual,101,55.00,Disponible
+7,39,Individual,102,65.00,Disponible
 7,40,Individual,103,50.00,Disponible
 7,41,Individual,104,45.00,Disponible
 7,42,Doble,201,90.00,Disponible
@@ -48,5 +48,5 @@ ID_HOTEL,ID_ROOM,TYPE,NUMBER,PRICE,STATUS
 8,47,Individual,103,55.00,Disponible
 8,48,Doble,201,85.00,Disponible
 8,49,Doble,202,95.00,Disponible
-8,50,Suite,301,130.00,Reservada
+8,50,Suite,301,130.00,Disponible
 8,51,Suite,302,140.00,Disponible

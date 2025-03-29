@@ -74,9 +74,10 @@ def create_instance_location(hotels_list):
 def create_instance_bus():
     bus_list = []
     for bus in all_buses:
-        bus_list.append(Bus(bus["BUS_NUM"], bus["SEATS"], bus["TYPE"]))
+        bus_list.append(Bus(bus["BUS_NUM"], bus["AVAILABLE_SEATS"], bus["TAKEN"]))
 
     create_instance_passenger(bus_list)
+    create_instance_route(bus_list)
 
     return bus_list
 
@@ -85,6 +86,12 @@ def create_instance_passenger(bus_list):
         for passenger in all_passengers:
             if bus.num == passenger["BUS_NUM"]:
                 bus.add_passenger(passenger["NAME"], passenger["BUS_NUM"], passenger["RESERVATION_NUMBER"])
+
+def create_instance_route(bus_list):
+    for bus in bus_list:
+        for route in all_routes:
+            if bus.num == route["BUS_NUM"]:
+                bus.add_route(route["BUS_NUM"], route["ROUTE_NUM"], route["STREET"], route["SCHEDULE"])
 
 def create_instance_reservation():
     reservations_list = []
@@ -110,7 +117,9 @@ def get_hotel(hotel_id, hotels_list, command):
     return "El ID ingresado no es válido"
 
 def get_bus(num, bus_list, command):
+    print(num, "utils.py")
     for bus in bus_list:
+        print(bus.num)
         if bus.num == num:
             match command:
                 case "info":
@@ -127,6 +136,9 @@ def get_all_reservations(reservations_list):
 
 def add_reservation(hotel_id, client_name, room_num, start_date, end_date):
     reservations = create_instance_reservation()
+
+    start_date = datetime.strptime(start_date, "%Y-%m-%d").strftime("%d/%m/%Y")
+    end_date = datetime.strptime(end_date, "%Y-%m-%d").strftime("%d/%m/%Y")
 
     for res in reservations:
         if res.hotel_id == hotel_id and res.room_num == room_num:
@@ -181,4 +193,25 @@ def get_reservation_by_id(reservation_id):
         if int(res.reservation_id) == int(reservation_id):
             return res.get_info()
     return None
+
+def get_route_by_hotel(hotel_id):
+    """Busca las rutas de autobuses que coincidan con la calle del hotel"""
+    hotel_info = get_hotel(hotel_id, create_instance_hotel(), "info")
+    street = hotel_info[2]
+    buses = create_instance_bus()
+    routes = []
+    routes_on_hotels = []
+
+    for bus in buses:
+        routes.append(get_bus(bus.num, buses, "routes"))
+
+    for route in routes:
+        for r in route:
+            if r[2] == street:
+                routes_on_hotels.append(r)
+
+    return routes_on_hotels
+
+
+    
 

@@ -1,7 +1,5 @@
-ID_HOTEL,NAME,BUS_NUM,RESERVATION_NUMBER
-1,Carlos Gómez,1,1001
-8,Juan Carlos Bodoque,4,301
-7,Juan Carlitos,3,101
-5,Carlitos Bodoque,3,101
-7,Carlitos Bodoque,3,102
-4,Bodoquito el loquito,2,302
+ID_HOTEL,NAME,BUS_NUM,RESERVATION_NUMBER,SEAT_NUM
+1,Carlos Gómez,1,1001,"[3]"
+
+2,ccc,1,101,"[10,9,5,4,1]"
+

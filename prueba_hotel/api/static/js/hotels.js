@@ -1,9 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+    search(hotelId, "rooms");
+});
+
 function search(num, endpoint){
     fetch(`/hotel/${num}/${endpoint}`, {
         method: "POST",
         headers: {"Content-Type": "application/x-www-form-urlencoded"},
     }).then(response => response.json()).then(rooms => {
-        console.log(rooms);
         if (rooms.length > 0){
             let roomsListHTML = "";
             rooms.forEach(room =>{
